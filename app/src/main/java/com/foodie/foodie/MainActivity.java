@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,8 @@ import java.util.HashMap;
 import javax.annotation.Nullable;
 
 public class MainActivity extends AppCompatActivity {
+    Toolbar toolbar;
+
 
     private RecyclerView mRecommendationList;
     private RecommendationListAdapter mAdapter;
@@ -28,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setTitle("Home");
+        setSupportActionBar(toolbar);
+
+
+
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Menus").document("Recommendations").addSnapshotListener(new EventListener<DocumentSnapshot>() {

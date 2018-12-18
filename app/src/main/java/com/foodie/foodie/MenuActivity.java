@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import java.util.HashMap;
 import javax.annotation.Nullable;
 
 public class MenuActivity extends AppCompatActivity {
+    Toolbar toolbar;
 
     private RecyclerView mFoodList;
     private FoodListAdapter mFoodAdapter;
@@ -29,6 +31,10 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Toolbar toolbar = findViewById(R.id.toolbarmenu);
+        setTitle("Menu");
+        setSupportActionBar(toolbar);
+
 
         Intent intent = getIntent();
         String selectedVendor = intent.getStringExtra("selectedVendor");
