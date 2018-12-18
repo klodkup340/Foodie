@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.google.firebase.firestore.DocumentChange;
@@ -18,6 +19,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 public class ShopActivity extends AppCompatActivity {
+    Toolbar toolbar;
 
     private RecyclerView mVendorList;
     private VendorListAdapter mListAdapter;
@@ -26,6 +28,9 @@ public class ShopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
+        Toolbar toolbar = findViewById(R.id.toolbarshop);
+        setTitle("Shop");
+        setSupportActionBar(toolbar);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Vendors").addSnapshotListener(new EventListener<QuerySnapshot>() {

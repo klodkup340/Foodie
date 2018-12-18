@@ -6,12 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <include
+        android:id= "@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+
     <TextView
-        android:id="@+id/recommended"
+        android:id="@+id/tv_recommended"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="65dp"
         android:text="@string/recommended"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,15 +24,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_recommendations"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/shop_button"
-        app:layout_constraintTop_toBottomOf="@id/recommended">
+        app:layout_constraintBottom_toTopOf="@id/bt_shop_button"
+        app:layout_constraintTop_toBottomOf="@id/tv_recommended">
 
     </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/shop_button"
+        android:id="@+id/bt_shop_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/shop_button"
